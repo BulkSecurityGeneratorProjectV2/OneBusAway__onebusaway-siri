@@ -23,6 +23,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.List;
 
@@ -81,8 +82,7 @@ public class LayoverServiceImplTest {
   @Test
   public void testLoadAndSaveLayoverLocations() throws IOException {
     String line = "10,47.668509,-122.290192,5\n";
-    File tmpFile = File.createTempFile(
-        LayoverServiceImplTest.class.getName() + "-", ".txt");
+    File tmpFile = Files.createTempFile(LayoverServiceImplTest.class.getName() + "-", ".txt").toFile();
     tmpFile.deleteOnExit();
     saveStringToFile(line, tmpFile);
 
